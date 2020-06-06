@@ -1,7 +1,7 @@
 resource "aws_instance" "test_instance" {
     ami = "ami-0a9e2b8a093c02922"
     instance_type = "t2.micro"
-    key_name = "Glob-laptop"
+    key_name = "Lenovo-laptop"
     security_groups = [
         aws_security_group.ssh_access.name
     ]
