@@ -1,0 +1,24 @@
+---
+- hosts: webservers
+  become: true
+  tasks:
+    - name: Add epel repo
+      yum:
+        name: epel-release
+        state: present
+        
+    - name: Install NGINX
+      yum:
+        name: nginx
+        state: present
+
+    - name: Add basic HTML page
+      template:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+
+    - name: Start NGINX
+      service:
+        name: nginx
+        state: started
+
